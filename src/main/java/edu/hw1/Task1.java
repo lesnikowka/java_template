@@ -14,13 +14,13 @@ public class Task1 {
         return minutes * 60 + seconds;
     }
 
-    private Boolean isCorrectString(String notParsed) {
+    private boolean isCorrectString(String notParsed) {
 
         return doesHaveOnlyNumbersAndColon(notParsed) && doesHaveSingleColon(notParsed) &&
             isCorrectNumberSeconds(notParsed);
     }
 
-    private Boolean isCorrectNumberSeconds(String notParsed){
+    private boolean isCorrectNumberSeconds(String notParsed){
         int colonIndex = notParsed.indexOf(':');
 
         int seconds = Integer.parseInt(notParsed.substring(colonIndex + 1));
@@ -28,7 +28,7 @@ public class Task1 {
         return seconds < 60;
     }
 
-    private Boolean doesHaveOnlyNumbersAndColon(String notParsed) {
+    private boolean doesHaveOnlyNumbersAndColon(String notParsed) {
         for (int i = 0; i < notParsed.length(); i++) {
             if (!isNumber(notParsed.charAt(i)) && !isColon(notParsed.charAt(i))) {
                 return false;
@@ -37,7 +37,7 @@ public class Task1 {
         return true;
     }
 
-    private Boolean doesHaveSingleColon(String notParsed) {
+    private boolean doesHaveSingleColon(String notParsed) {
         int firstColonIndex = notParsed.indexOf(':');
 
         if (firstColonIndex != -1) {
@@ -50,13 +50,12 @@ public class Task1 {
         return false;
     }
 
-    private Boolean isNumber(char symbol) {
+    private boolean isNumber(char symbol) {
+        final String numbers = "1234567890";
         return numbers.indexOf(symbol) != -1;
     }
 
-    private Boolean isColon(char symbol) {
+    private boolean isColon(char symbol) {
         return symbol == ':';
     }
-
-    String numbers = "1234567890";
 }

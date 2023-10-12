@@ -67,5 +67,11 @@ public final class Main {
         LOGGER.info(task6.getNumberOfStepsForConstantCaprecar(6554));
         LOGGER.info(task6.getNumberOfStepsForConstantCaprecar(1234));
 
+        Task7 task7 = new Task7();
+
+        LOGGER.info(task7.rotateRight(8, 1));
+        LOGGER.info(task7.rotateLeft(16, 1));
+        LOGGER.info(task7.rotateLeft(17, 2));
+
     }
 }
