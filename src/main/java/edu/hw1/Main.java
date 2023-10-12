@@ -22,6 +22,15 @@ public final class Main {
         LOGGER.info(task1.getVideoLength("13:56"));
         LOGGER.info(task1.getVideoLength("10:60"));
 
+        Task2 task2 = new Task2();
+
+        LOGGER.info(task2.getNumberOfDigits(0));
+        LOGGER.info(task2.getNumberOfDigits(10));
+        LOGGER.info(task2.getNumberOfDigits(123));
+        LOGGER.info(task2.getNumberOfDigits(1));
+        LOGGER.info(task2.getNumberOfDigits(-1));
+
+
 
     }
 }
