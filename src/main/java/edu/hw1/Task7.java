@@ -31,7 +31,7 @@ public class Task7 {
         int maskForDeletingExtraOnes;
 
         if (bitLength < 32) {
-            maskForDeletingExtraOnes = (1 << bitLength) - 1; // 1 0 0 0 0   1 1 1 1 1
+            maskForDeletingExtraOnes = (1 << bitLength) - 1;
         } else {
             maskForDeletingExtraOnes = (((1 << (bitLength - 1)) - 1) << 1) + 1;
         }
@@ -43,7 +43,7 @@ public class Task7 {
         return (n << 1) & maskForDeletingExtraOnes;
     }
 
-    private int rotateRightOneStep(int n, int bitLength) { // 1 0 0 1
+    private int rotateRightOneStep(int n, int bitLength) { 
         int bitOneLast = 1;
         int bitOneFirst = 1 << bitLength - 1;
 
