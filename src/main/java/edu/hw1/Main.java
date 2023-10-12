@@ -54,5 +54,12 @@ public final class Main {
 
         LOGGER.info(task3.canBeNested(arr14, arr24));
 
+        Task4 task4 = new Task4();
+
+        LOGGER.info(task4.getRepairedString("123456"));
+        LOGGER.info(task4.getRepairedString("hTsii  s aimex dpus rtni.g"));
+        LOGGER.info(task4.getRepairedString("badce"));
+        LOGGER.info(task4.getRepairedString(""));
+
     }
 }
