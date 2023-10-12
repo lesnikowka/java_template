@@ -30,7 +30,29 @@ public final class Main {
         LOGGER.info(task2.getNumberOfDigits(1));
         LOGGER.info(task2.getNumberOfDigits(-1));
 
+        Task3 task3 = new Task3();
 
+        Integer[] arr11 = {1, 2, 3, 4};
+        Integer[] arr21 = {0, 6};
+
+        LOGGER.info(task3.canBeNested(arr11, arr21));
+
+        Integer[] arr12 = {1, 2, 3, 4};
+        Integer[] arr22 = {0, 6};
+
+        LOGGER.info(task3.canBeNested(arr12, arr22));
+
+
+        Integer[] arr13 = {9, 9, 8};
+        Integer[] arr23 = {8, 9};
+
+        LOGGER.info(task3.canBeNested(arr13, arr23));
+
+
+        Integer[] arr14 = {1, 2, 3, 4};
+        Integer[] arr24 = {2, 3};
+
+        LOGGER.info(task3.canBeNested(arr14, arr24));
 
     }
 }
