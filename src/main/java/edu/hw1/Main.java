@@ -11,17 +11,17 @@ public final class Main {
     private Main() {
     }
 
+    private static void check(String s){
+        s = "asdasdasd";
+    }
+
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        LOGGER.info("Hello and welcome!");
+        Task1 task1 = new Task1();
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 0; i <= 2; i++) {
+        LOGGER.info(task1.getVideoLength("01:00"));
+        LOGGER.info(task1.getVideoLength("13:56"));
+        LOGGER.info(task1.getVideoLength("10:60"));
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            LOGGER.info("i = {}", i);
-        }
+
     }
 }
