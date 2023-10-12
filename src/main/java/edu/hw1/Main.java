@@ -73,5 +73,15 @@ public final class Main {
         LOGGER.info(task7.rotateLeft(16, 1));
         LOGGER.info(task7.rotateLeft(17, 2));
 
+        Task5 task5 = new Task5();
+        LOGGER.info("");
+        LOGGER.info(task5.isSpecialPalindrome(11211230));
+        LOGGER.info(task5.isSpecialPalindrome(13001120));
+        LOGGER.info(task5.isSpecialPalindrome(23336014));
+        LOGGER.info(task5.isSpecialPalindrome(11));
+        LOGGER.info(task5.isSpecialPalindrome(1));
+        LOGGER.info(task5.isSpecialPalindrome(1322));
+        LOGGER.info(task5.isSpecialPalindrome(23229000));
+
     }
 }
