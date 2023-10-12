@@ -61,5 +61,11 @@ public final class Main {
         LOGGER.info(task4.getRepairedString("badce"));
         LOGGER.info(task4.getRepairedString(""));
 
+        Task6 task6 = new Task6();
+
+        LOGGER.info(task6.getNumberOfStepsForConstantCaprecar(6621));
+        LOGGER.info(task6.getNumberOfStepsForConstantCaprecar(6554));
+        LOGGER.info(task6.getNumberOfStepsForConstantCaprecar(1234));
+
     }
 }
