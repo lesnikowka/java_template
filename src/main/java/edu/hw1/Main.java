@@ -83,5 +83,21 @@ public final class Main {
         LOGGER.info(task5.isSpecialPalindrome(1322));
         LOGGER.info(task5.isSpecialPalindrome(23229000));
 
+        Task8 task8 = new Task8();
+
+        int[][] board1 = {
+            {0, 0, 0, 1, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 1, 0, 0, 0, 1, 0, 0},
+            {0, 0, 0, 0, 1, 0, 1, 0},
+            {0, 1, 0, 0, 0, 1, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 1, 0, 0, 0, 0, 0, 1},
+            {0, 0, 0, 0, 1, 0, 0, 0}
+        };
+
+        LOGGER.info("");
+        LOGGER.info(task8.allKnightsCannotAttackOtherKnights(board1));
+
     }
 }

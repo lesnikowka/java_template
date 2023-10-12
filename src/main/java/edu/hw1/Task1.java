@@ -2,7 +2,7 @@ package edu.hw1;
 
 public class Task1 {
     public int getVideoLength(String notParsed) {
-        if (!isCorrectString(notParsed)){
+        if (!isCorrectString(notParsed)) {
             return -1;
         }
 
@@ -20,7 +20,7 @@ public class Task1 {
             isCorrectNumberSeconds(notParsed);
     }
 
-    private boolean isCorrectNumberSeconds(String notParsed){
+    private boolean isCorrectNumberSeconds(String notParsed) {
         int colonIndex = notParsed.indexOf(':');
 
         int seconds = Integer.parseInt(notParsed.substring(colonIndex + 1));

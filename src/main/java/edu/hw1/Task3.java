@@ -4,12 +4,12 @@ import java.util.Arrays;
 import java.util.Collections;
 
 public class Task3 {
-    public boolean canBeNested(Integer[] arr1, Integer[] arr2){
-        if (arr1 == null || arr2 == null){
+    public boolean canBeNested(Integer[] arr1, Integer[] arr2) {
+        if (arr1 == null || arr2 == null) {
             throw new NullPointerException("Arrays cannot be null");
         }
 
-        if (arr1.length == 0 || arr2.length < 2){
+        if (arr1.length == 0 || arr2.length < 2) {
             throw new IllegalArgumentException("Incorrect array size");
         }
 

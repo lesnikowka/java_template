@@ -32,8 +32,7 @@ public class Task7 {
 
         if (bitLength < 32) {
             maskForDeletingExtraOnes = (1 << bitLength) - 1; // 1 0 0 0 0   1 1 1 1 1
-        }
-        else{
+        } else {
             maskForDeletingExtraOnes = (((1 << (bitLength - 1)) - 1) << 1) + 1;
         }
 
