@@ -2,7 +2,7 @@ package edu.hw1;
 
 import java.util.Arrays;
 
-public class Task6 {
+public final class Task6 {
     private Task6() {
         throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
     }

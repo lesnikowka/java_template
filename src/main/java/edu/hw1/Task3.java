@@ -3,7 +3,7 @@ package edu.hw1;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class Task3 {
+public final class Task3 {
     private Task3() {
         throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
     }

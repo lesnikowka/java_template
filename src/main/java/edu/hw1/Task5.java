@@ -1,6 +1,6 @@
 package edu.hw1;
 
-public class Task5 {
+public final class Task5 {
     private Task5() {
         throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
     }
@@ -33,19 +33,19 @@ public class Task5 {
     }
 
     @SuppressWarnings("MagicNumber")
-    private static boolean isPalindrome(int number) {
+    private static boolean isPalindrome(int sourceNumber) {
         final int minimalPalindrome = 11;
 
-        if (number < minimalPalindrome) {
+        if (sourceNumber < minimalPalindrome) {
             return false;
         }
 
-        int lengthOfNumber = getLengthOfNumber(number);
+        int lengthOfNumber = getLengthOfNumber(sourceNumber);
 
         for (int i = 0; i < lengthOfNumber / 2; i++) {
             int reversedIndex = lengthOfNumber - 1 - i;
-            int leftDigit = getDigit(number, i);
-            int rightDigit = getDigit(number, reversedIndex);
+            int leftDigit = getDigit(sourceNumber, i);
+            int rightDigit = getDigit(sourceNumber, reversedIndex);
 
             if (leftDigit != rightDigit) {
                 return false;
@@ -56,23 +56,23 @@ public class Task5 {
     }
 
     @SuppressWarnings("MagicNumber")
-    private static int getDigit(int number, int place) {
-        number %= (int) Math.pow(10, place + 1);
-        number /= (int) Math.pow(10, place);
+    private static int getDigit(int sourceNumber, int place) {
+        sourceNumber %= (int) Math.pow(10, place + 1);
+        sourceNumber /= (int) Math.pow(10, place);
 
-        return number;
+        return sourceNumber;
     }
 
     @SuppressWarnings("MagicNumber")
-    private static int getLengthOfNumber(int number) {
-        if (number == 0) {
+    private static int getLengthOfNumber(int sourceNumber) {
+        if (sourceNumber == 0) {
             return 1;
         }
 
         int length = 0;
 
-        while (number != 0) {
-            number /= 10;
+        while (sourceNumber != 0) {
+            sourceNumber /= 10;
             length++;
         }
 

@@ -1,6 +1,6 @@
 package edu.hw1;
 
-public class Task2 {
+public final class Task2 {
     private Task2() {
         throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
     }
