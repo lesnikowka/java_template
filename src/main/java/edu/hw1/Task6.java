@@ -3,7 +3,7 @@ package edu.hw1;
 import java.util.Arrays;
 
 public class Task6 {
-    public int getNumberOfStepsForConstantCaprecar(int number) {
+    public static int getNumberOfStepsForConstantCaprecar(int number) throws IllegalArgumentException {
         if (number <= 1000 || number >= 10000) {
             throw new IllegalArgumentException("Number should be greater than 1000 and less then 10000");
         }
@@ -11,14 +11,14 @@ public class Task6 {
         return makeStep(Integer.toString(number), 0);
     }
 
-    private int makeStep(String currentNumber, int step) {
+    private static int makeStep(String currentNumber, int step) {
         if (Integer.parseInt(currentNumber) == 6174) {
             return step;
         }
         return makeStep(caprecarFunction(currentNumber), step + 1);
     }
 
-    private String caprecarFunction(String number) {
+    private static String caprecarFunction(String number) {
         char[] symbols = number.toCharArray();
 
         Arrays.sort(symbols);
@@ -29,7 +29,7 @@ public class Task6 {
         return Integer.toString(maxNumber - minNumber);
     }
 
-    private char[] reverse(char[] array) {
+    private static char[] reverse(char[] array) {
         char[] reversedArray = new char[array.length];
 
         for (int i = 0; i < array.length / 2; i++) {

@@ -3,7 +3,7 @@ package edu.hw1;
 import java.lang.Math;
 
 public class Task5 {
-    public boolean isSpecialPalindrome(int number) {
+    public static boolean isSpecialPalindrome(int number) {
         if (isPalindrome(number)) {
             return true;
         }
@@ -16,7 +16,7 @@ public class Task5 {
         return isSpecialPalindrome(convolutedNumber);
     }
 
-    private int getConvoluted(int number) {
+    private static int getConvoluted(int number) {
         StringBuilder convoluted = new StringBuilder();
 
         int lengthOfNumber = getLengthOfNumber(number);
@@ -30,7 +30,7 @@ public class Task5 {
         return Integer.parseInt(convoluted.toString());
     }
 
-    private boolean isPalindrome(int number) {
+    private static boolean isPalindrome(int number) {
         int minimumPalindrome = 11;
 
         if (number < minimumPalindrome) {
@@ -52,14 +52,14 @@ public class Task5 {
         return true;
     }
 
-    private int getDigit(int number, int place) { // 32425
+    private static int getDigit(int number, int place) { // 32425
         number %= (int) Math.pow(10, place + 1);
         number /= (int) Math.pow(10, place);
 
         return number;
     }
 
-    private int getLengthOfNumber(int number) {
+    private static int getLengthOfNumber(int number) {
         if (number == 0) {
             return 1;
         }

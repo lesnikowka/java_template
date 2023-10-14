@@ -1,7 +1,7 @@
 package edu.hw1;
 
 public class Task2 {
-    public int getNumberOfDigits(int number) {
+    public static int getNumberOfDigits(int number) {
         if (number == 0) {
             return 1;
         }

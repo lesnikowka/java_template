@@ -1,7 +1,7 @@
 package edu.hw1;
 
 public class Task1 {
-    public int getVideoLength(String notParsed) {
+    public static int getVideoLength(String notParsed) {
         if (!isCorrectString(notParsed)) {
             return -1;
         }
@@ -14,21 +14,25 @@ public class Task1 {
         return minutes * 60 + seconds;
     }
 
-    private boolean isCorrectString(String notParsed) {
+    private static boolean isCorrectString(String notParsed) {
 
         return doesHaveOnlyNumbersAndColon(notParsed) && doesHaveSingleColon(notParsed) &&
-            isCorrectNumberSeconds(notParsed);
+            isCorrectNumberSecondsAndMinutes(notParsed);
     }
 
-    private boolean isCorrectNumberSeconds(String notParsed) {
+    private static boolean isCorrectNumberSecondsAndMinutes(String notParsed) {
         int colonIndex = notParsed.indexOf(':');
+
+        if (colonIndex == 0 && colonIndex == notParsed.length() - 1){
+            return false;
+        }
 
         int seconds = Integer.parseInt(notParsed.substring(colonIndex + 1));
 
         return seconds < 60;
     }
 
-    private boolean doesHaveOnlyNumbersAndColon(String notParsed) {
+    private static boolean doesHaveOnlyNumbersAndColon(String notParsed) {
         for (int i = 0; i < notParsed.length(); i++) {
             if (!isNumber(notParsed.charAt(i)) && !isColon(notParsed.charAt(i))) {
                 return false;
@@ -37,10 +41,10 @@ public class Task1 {
         return true;
     }
 
-    private boolean doesHaveSingleColon(String notParsed) {
+    private static boolean doesHaveSingleColon(String notParsed) {
         int firstColonIndex = notParsed.indexOf(':');
 
-        if (firstColonIndex != -1) {
+        if (firstColonIndex != 0 && firstColonIndex != notParsed.length() - 1) {
             String cropped = notParsed.substring(firstColonIndex + 1);
             int secondColonIndex = cropped.indexOf(':');
 
@@ -50,12 +54,12 @@ public class Task1 {
         return false;
     }
 
-    private boolean isNumber(char symbol) {
+    private static boolean isNumber(char symbol) {
         final String numbers = "1234567890";
         return numbers.indexOf(symbol) != -1;
     }
 
-    private boolean isColon(char symbol) {
+    private static boolean isColon(char symbol) {
         return symbol == ':';
     }
 }

@@ -2,7 +2,7 @@ package edu.hw1;
 
 public class Task7 {
 
-    public int rotateLeft(int n, int shift) {
+    public static int rotateLeft(int n, int shift) {
         int rotatedN = n;
 
         for (int i = 0; i < shift; i++) {
@@ -12,7 +12,7 @@ public class Task7 {
         return rotatedN;
     }
 
-    public int rotateRight(int n, int shift) {
+    public static int rotateRight(int n, int shift) {
         int rotatedN = n;
 
         for (int i = 0; i < shift; i++) {
@@ -22,7 +22,8 @@ public class Task7 {
         return rotatedN;
     }
 
-    private int rotateLeftOneStep(int n, int bitLength) {
+    private static int rotateLeftOneStep(int n, int bitLength) {
+        int intSize = 32;
         int bitOneLast = 1;
         int bitOneFirst = 1 << bitLength - 1;
 
@@ -30,7 +31,7 @@ public class Task7 {
 
         int maskForDeletingExtraOnes;
 
-        if (bitLength < 32) {
+        if (bitLength < intSize) {
             maskForDeletingExtraOnes = (1 << bitLength) - 1;
         } else {
             maskForDeletingExtraOnes = (((1 << (bitLength - 1)) - 1) << 1) + 1;
@@ -43,7 +44,7 @@ public class Task7 {
         return (n << 1) & maskForDeletingExtraOnes;
     }
 
-    private int rotateRightOneStep(int n, int bitLength) { 
+    private static int rotateRightOneStep(int n, int bitLength) {
         int bitOneLast = 1;
         int bitOneFirst = 1 << bitLength - 1;
 
@@ -56,7 +57,7 @@ public class Task7 {
         return n >> 1;
     }
 
-    private int getBitLength(int n) {
+    private static int getBitLength(int n) {
         final int intSize = 32;
 
         int bitOne = 1 << intSize - 1;

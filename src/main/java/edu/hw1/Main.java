@@ -16,74 +16,66 @@ public final class Main {
     }
 
     public static void main(String[] args) {
-        Task1 task1 = new Task1();
 
-        LOGGER.info(task1.getVideoLength("01:00"));
-        LOGGER.info(task1.getVideoLength("13:56"));
-        LOGGER.info(task1.getVideoLength("10:60"));
+        LOGGER.info(Task1.getVideoLength("01:00"));
+        LOGGER.info(Task1.getVideoLength("13:56"));
+        LOGGER.info(Task1.getVideoLength("10:60"));
 
-        Task2 task2 = new Task2();
+        LOGGER.info(Task2.getNumberOfDigits(0));
+        LOGGER.info(Task2.getNumberOfDigits(10));
+        LOGGER.info(Task2.getNumberOfDigits(123));
+        LOGGER.info(Task2.getNumberOfDigits(1));
+        LOGGER.info(Task2.getNumberOfDigits(-1));
 
-        LOGGER.info(task2.getNumberOfDigits(0));
-        LOGGER.info(task2.getNumberOfDigits(10));
-        LOGGER.info(task2.getNumberOfDigits(123));
-        LOGGER.info(task2.getNumberOfDigits(1));
-        LOGGER.info(task2.getNumberOfDigits(-1));
-
-        Task3 task3 = new Task3();
 
         Integer[] arr11 = {1, 2, 3, 4};
         Integer[] arr21 = {0, 6};
 
-        LOGGER.info(task3.canBeNested(arr11, arr21));
+        LOGGER.info(Task3.canBeNested(arr11, arr21));
 
         Integer[] arr12 = {1, 2, 3, 4};
         Integer[] arr22 = {0, 6};
 
-        LOGGER.info(task3.canBeNested(arr12, arr22));
+        LOGGER.info(Task3.canBeNested(arr12, arr22));
 
 
         Integer[] arr13 = {9, 9, 8};
         Integer[] arr23 = {8, 9};
 
-        LOGGER.info(task3.canBeNested(arr13, arr23));
+        LOGGER.info(Task3.canBeNested(arr13, arr23));
 
 
         Integer[] arr14 = {1, 2, 3, 4};
         Integer[] arr24 = {2, 3};
 
-        LOGGER.info(task3.canBeNested(arr14, arr24));
+        LOGGER.info(Task3.canBeNested(arr14, arr24));
 
-        Task4 task4 = new Task4();
 
-        LOGGER.info(task4.getRepairedString("123456"));
-        LOGGER.info(task4.getRepairedString("hTsii  s aimex dpus rtni.g"));
-        LOGGER.info(task4.getRepairedString("badce"));
-        LOGGER.info(task4.getRepairedString(""));
+        LOGGER.info(Task4.getRepairedString("123456"));
+        LOGGER.info(Task4.getRepairedString("hTsii  s aimex dpus rtni.g"));
+        LOGGER.info(Task4.getRepairedString("badce"));
+        LOGGER.info(Task4.getRepairedString(""));
 
-        Task6 task6 = new Task6();
 
-        LOGGER.info(task6.getNumberOfStepsForConstantCaprecar(6621));
-        LOGGER.info(task6.getNumberOfStepsForConstantCaprecar(6554));
-        LOGGER.info(task6.getNumberOfStepsForConstantCaprecar(1234));
+        LOGGER.info(Task6.getNumberOfStepsForConstantCaprecar(6621));
+        LOGGER.info(Task6.getNumberOfStepsForConstantCaprecar(6554));
+        LOGGER.info(Task6.getNumberOfStepsForConstantCaprecar(1234));
 
-        Task7 task7 = new Task7();
 
-        LOGGER.info(task7.rotateRight(8, 1));
-        LOGGER.info(task7.rotateLeft(16, 1));
-        LOGGER.info(task7.rotateLeft(17, 2));
+        LOGGER.info(Task7.rotateRight(8, 1));
+        LOGGER.info(Task7.rotateLeft(16, 1));
+        LOGGER.info(Task7.rotateLeft(17, 2));
 
-        Task5 task5 = new Task5();
+        Task5 Task5 = new Task5();
         LOGGER.info("");
-        LOGGER.info(task5.isSpecialPalindrome(11211230));
-        LOGGER.info(task5.isSpecialPalindrome(13001120));
-        LOGGER.info(task5.isSpecialPalindrome(23336014));
-        LOGGER.info(task5.isSpecialPalindrome(11));
-        LOGGER.info(task5.isSpecialPalindrome(1));
-        LOGGER.info(task5.isSpecialPalindrome(1322));
-        LOGGER.info(task5.isSpecialPalindrome(23229000));
+        LOGGER.info(Task5.isSpecialPalindrome(11211230));
+        LOGGER.info(Task5.isSpecialPalindrome(13001120));
+        LOGGER.info(Task5.isSpecialPalindrome(23336014));
+        LOGGER.info(Task5.isSpecialPalindrome(11));
+        LOGGER.info(Task5.isSpecialPalindrome(1));
+        LOGGER.info(Task5.isSpecialPalindrome(1322));
+        LOGGER.info(Task5.isSpecialPalindrome(23229000));
 
-        Task8 task8 = new Task8();
 
         int[][] board1 = {
             {0, 0, 0, 1, 0, 0, 0, 0},
@@ -97,7 +89,7 @@ public final class Main {
         };
 
         LOGGER.info("");
-        LOGGER.info(task8.allKnightsCannotAttackOtherKnights(board1));
+        LOGGER.info(Task8.allKnightsCannotAttackOtherKnights(board1));
 
     }
 }
