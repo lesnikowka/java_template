@@ -33,19 +33,19 @@ public final class Task5 {
     }
 
     @SuppressWarnings("MagicNumber")
-    private static boolean isPalindrome(int sourceNumber) {
+    private static boolean isPalindrome(int number) {
         final int minimalPalindrome = 11;
 
-        if (sourceNumber < minimalPalindrome) {
+        if (number < minimalPalindrome) {
             return false;
         }
 
-        int lengthOfNumber = getLengthOfNumber(sourceNumber);
+        int lengthOfNumber = getLengthOfNumber(number);
 
         for (int i = 0; i < lengthOfNumber / 2; i++) {
             int reversedIndex = lengthOfNumber - 1 - i;
-            int leftDigit = getDigit(sourceNumber, i);
-            int rightDigit = getDigit(sourceNumber, reversedIndex);
+            int leftDigit = getDigit(number, i);
+            int rightDigit = getDigit(number, reversedIndex);
 
             if (leftDigit != rightDigit) {
                 return false;
@@ -56,23 +56,27 @@ public final class Task5 {
     }
 
     @SuppressWarnings("MagicNumber")
-    private static int getDigit(int sourceNumber, int place) {
-        sourceNumber %= (int) Math.pow(10, place + 1);
-        sourceNumber /= (int) Math.pow(10, place);
+    private static int getDigit(int number, int place) {
+        int numberCopy = number;
 
-        return sourceNumber;
+        numberCopy %= (int) Math.pow(10, place + 1);
+        numberCopy /= (int) Math.pow(10, place);
+
+        return numberCopy;
     }
 
     @SuppressWarnings("MagicNumber")
-    private static int getLengthOfNumber(int sourceNumber) {
-        if (sourceNumber == 0) {
+    private static int getLengthOfNumber(int number) {
+        int numberCopy = number;
+
+        if (numberCopy == 0) {
             return 1;
         }
 
         int length = 0;
 
-        while (sourceNumber != 0) {
-            sourceNumber /= 10;
+        while (numberCopy != 0) {
+            numberCopy /= 10;
             length++;
         }
 
