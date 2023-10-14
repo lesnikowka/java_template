@@ -1,6 +1,7 @@
 package edu.hw1;
 
 public class Task1 {
+    @SuppressWarnings("MagicNumber")
     public static int getVideoLength(String notParsed) {
         if (!isCorrectString(notParsed)) {
             return -1;
@@ -16,10 +17,11 @@ public class Task1 {
 
     private static boolean isCorrectString(String notParsed) {
 
-        return doesHaveOnlyNumbersAndColon(notParsed) && doesHaveSingleColon(notParsed) &&
-            isCorrectNumberSecondsAndMinutes(notParsed);
+        return doesHaveOnlyNumbersAndColon(notParsed) && doesHaveSingleColon(notParsed)
+            && isCorrectNumberSecondsAndMinutes(notParsed);
     }
 
+    @SuppressWarnings("MagicNumber")
     private static boolean isCorrectNumberSecondsAndMinutes(String notParsed) {
         int colonIndex = notParsed.indexOf(':');
 
@@ -54,6 +56,7 @@ public class Task1 {
         return false;
     }
 
+    @SuppressWarnings("MagicNumber")
     private static boolean isNumber(char symbol) {
         final String numbers = "1234567890";
         return numbers.indexOf(symbol) != -1;

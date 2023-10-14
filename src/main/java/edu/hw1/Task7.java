@@ -23,7 +23,7 @@ public class Task7 {
     }
 
     private static int rotateLeftOneStep(int n, int bitLength) {
-        int intSize = 32;
+        final int intSize = 32;
         int bitOneLast = 1;
         int bitOneFirst = 1 << bitLength - 1;
 
@@ -57,6 +57,7 @@ public class Task7 {
         return n >> 1;
     }
 
+    @SuppressWarnings("MagicNumber")
     private static int getBitLength(int n) {
         final int intSize = 32;
 

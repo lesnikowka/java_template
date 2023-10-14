@@ -3,17 +3,19 @@ package edu.hw1;
 import java.util.Arrays;
 
 public class Task6 {
+    @SuppressWarnings("MagicNumber")
     public static int getNumberOfStepsForConstantCaprecar(int number) throws IllegalArgumentException {
-        int minNumber = 1000;
-        int maxNumber = 10000;
+        final int minNumber = 1001;
+        final int maxNumber = 9999;
 
-        if (number <= minNumber || number >= maxNumber) {
+        if (number < minNumber || number > maxNumber) {
             throw new IllegalArgumentException("Number should be greater than 1000 and less then 10000");
         }
 
         return makeStep(Integer.toString(number), 0);
     }
 
+    @SuppressWarnings("MagicNumber")
     private static int makeStep(String currentNumber, int step) {
         if (Integer.parseInt(currentNumber) == 6174) {
             return step;

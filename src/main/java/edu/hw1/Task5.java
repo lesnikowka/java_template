@@ -30,10 +30,11 @@ public class Task5 {
         return Integer.parseInt(convoluted.toString());
     }
 
+    @SuppressWarnings("MagicNumber")
     private static boolean isPalindrome(int number) {
-        int minimumPalindrome = 11;
+        final int minimalPalindrome = 11;
 
-        if (number < minimumPalindrome) {
+        if (number < minimalPalindrome) {
             return false;
         }
 
@@ -52,13 +53,15 @@ public class Task5 {
         return true;
     }
 
-    private static int getDigit(int number, int place) { // 32425
+    @SuppressWarnings("MagicNumber")
+    private static int getDigit(int number, int place) {
         number %= (int) Math.pow(10, place + 1);
         number /= (int) Math.pow(10, place);
 
         return number;
     }
 
+    @SuppressWarnings("MagicNumber")
     private static int getLengthOfNumber(int number) {
         if (number == 0) {
             return 1;

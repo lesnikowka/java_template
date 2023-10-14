@@ -20,8 +20,8 @@ public class Task8 {
     }
 
     private static boolean canAttackAnyKnight(final int[][] board, int x, int y) {
-        return isKnightOnPlaceLeft(board, x, y) || isKnightOnPlaceRight(board, x, y) &&
-            isKnightOnPlaceLeftmost(board, x, y) && isKnightOnPlaceRightmost(board, x, y);
+        return isKnightOnPlaceLeft(board, x, y) || isKnightOnPlaceRight(board, x, y)
+            && isKnightOnPlaceLeftmost(board, x, y) && isKnightOnPlaceRightmost(board, x, y);
     }
 
     private static boolean isKnightOnPlaceLeft(final int[][] board, int x, int y) {
