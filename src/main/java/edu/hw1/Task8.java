@@ -5,12 +5,13 @@ public final class Task8 {
         throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
     }
 
-    public static boolean allKnightsCannotAttackOtherKnights(int[][] board) throws NullPointerException, IllegalArgumentException {
+    public static boolean allKnightsCannotAttackOtherKnights(int[][] board)
+        throws NullPointerException, IllegalArgumentException {
         if (board == null) {
             throw new NullPointerException("Array cannot be null");
         }
 
-        if (!isBoardCorrect(board)){
+        if (!isBoardCorrect(board)) {
             throw new IllegalArgumentException("Board is incorrect");
         }
 
@@ -62,14 +63,14 @@ public final class Task8 {
         return (newX < n) && (newY < n) && (board[newX][newY] == 1);
     }
 
-    private static boolean isBoardCorrect(final int[][] board){
+    private static boolean isBoardCorrect(final int[][] board) {
         return isBoardSizeCorrect(board) && doesBoardHaveOnlyOnes(board);
     }
 
-    private static boolean isBoardSizeCorrect(final int[][] board){
+    private static boolean isBoardSizeCorrect(final int[][] board) {
         final int boardSize = 8;
 
-        if (board.length != boardSize){
+        if (board.length != boardSize) {
             return false;
         }
 
@@ -82,10 +83,10 @@ public final class Task8 {
         return true;
     }
 
-    private static boolean doesBoardHaveOnlyOnes(final int[][] board){
-        for (int[] row : board){
-            for (int element : row){
-                if (element != 1 && element != 0){
+    private static boolean doesBoardHaveOnlyOnes(final int[][] board) {
+        for (int[] row : board) {
+            for (int element : row) {
+                if (element != 1 && element != 0) {
                     return false;
                 }
             }
