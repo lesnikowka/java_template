@@ -13,7 +13,7 @@ public class Task4 {
             builder.append(brokenString.charAt(i));
         }
 
-        if (brokenString.length() % 2 == 1){
+        if (brokenString.length() % 2 == 1) {
             builder.append(brokenString.charAt(brokenString.length() - 1));
         }
 

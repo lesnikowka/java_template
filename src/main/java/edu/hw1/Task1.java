@@ -23,7 +23,7 @@ public class Task1 {
     private static boolean isCorrectNumberSecondsAndMinutes(String notParsed) {
         int colonIndex = notParsed.indexOf(':');
 
-        if (colonIndex == 0 && colonIndex == notParsed.length() - 1){
+        if (colonIndex == 0 && colonIndex == notParsed.length() - 1) {
             return false;
         }
 

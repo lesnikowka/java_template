@@ -4,7 +4,10 @@ import java.util.Arrays;
 
 public class Task6 {
     public static int getNumberOfStepsForConstantCaprecar(int number) throws IllegalArgumentException {
-        if (number <= 1000 || number >= 10000) {
+        int minNumber = 1000;
+        int maxNumber = 10000;
+
+        if (number <= minNumber || number >= maxNumber) {
             throw new IllegalArgumentException("Number should be greater than 1000 and less then 10000");
         }
 
@@ -15,6 +18,7 @@ public class Task6 {
         if (Integer.parseInt(currentNumber) == 6174) {
             return step;
         }
+
         return makeStep(caprecarFunction(currentNumber), step + 1);
     }
 
@@ -41,6 +45,7 @@ public class Task6 {
 
         if (array.length % 2 != 0) {
             int mediumIndex = array.length / 2 + 1;
+
             reversedArray[mediumIndex] = array[mediumIndex];
         }
 

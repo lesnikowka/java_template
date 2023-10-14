@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Collections;
 
 public class Task3 {
-    public static boolean canBeNested(Integer[] arr1, Integer[] arr2) throws NullPointerException{
+    public static boolean canBeNested(Integer[] arr1, Integer[] arr2) throws NullPointerException {
         if (arr1 == null || arr2 == null) {
             throw new NullPointerException("Arrays cannot be null");
         }

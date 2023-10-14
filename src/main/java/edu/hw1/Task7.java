@@ -66,6 +66,7 @@ public class Task7 {
             if ((bitOne & n) != 0) {
                 return intSize - i;
             }
+
             bitOne = bitOne >> 1;
         }
 

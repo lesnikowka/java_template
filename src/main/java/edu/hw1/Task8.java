@@ -20,36 +20,35 @@ public class Task8 {
     }
 
     private static boolean canAttackAnyKnight(final int[][] board, int x, int y) {
-        return isKnightOnPlace1(board, x, y) || isKnightOnPlace2(board, x, y) &&
-            isKnightOnPlace3(board, x, y) && isKnightOnPlace4(board, x, y);
+        return isKnightOnPlaceLeft(board, x, y) || isKnightOnPlaceRight(board, x, y) &&
+            isKnightOnPlaceLeftmost(board, x, y) && isKnightOnPlaceRightmost(board, x, y);
     }
 
-    private static boolean isKnightOnPlace1(final int[][] board, int x, int y) {
+    private static boolean isKnightOnPlaceLeft(final int[][] board, int x, int y) {
         int n = board.length;
         int newX = x + 2, newY = y - 1;
 
         return (newX < n) && (newY >= 0) && (board[newX][newY] == 1);
     }
 
-    private static boolean isKnightOnPlace2(final int[][] board, int x, int y) {
+    private static boolean isKnightOnPlaceRight(final int[][] board, int x, int y) {
         int n = board.length;
         int newX = x + 2, newY = y + 1;
 
         return (newX < n) && (newY < n) && (board[newX][newY] == 1);
     }
 
-    private static boolean isKnightOnPlace3(final int[][] board, int x, int y) {
+    private static boolean isKnightOnPlaceLeftmost(final int[][] board, int x, int y) {
         int n = board.length;
         int newX = x + 1, newY = y - 2;
 
         return (newX < n) && (newY >= 0) && (board[newX][newY] == 1);
     }
 
-    private static boolean isKnightOnPlace4(final int[][] board, int x, int y) {
+    private static boolean isKnightOnPlaceRightmost(final int[][] board, int x, int y) {
         int n = board.length;
         int newX = x + 1, newY = y + 2;
 
         return (newX < n) && (newY < n) && (board[newX][newY] == 1);
     }
-
 }
