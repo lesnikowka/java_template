@@ -4,6 +4,7 @@ public class Task4 {
     private Task4() {
         throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
     }
+    
     public static String getRepairedString(String brokenString) throws NullPointerException {
         if (brokenString == null) {
             throw new NullPointerException("String cannot be null");

@@ -4,7 +4,7 @@ public class Task8 {
     private Task8() {
         throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
     }
-    
+
     public static boolean allKnightsCannotAttackOtherKnights(int[][] board) throws NullPointerException{
         if (board == null){
             throw new NullPointerException("Array cannot be null");
