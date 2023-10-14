@@ -3,6 +3,10 @@ package edu.hw1;
 import java.lang.Math;
 
 public class Task5 {
+    private Task5() {
+        throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
+    }
+
     public static boolean isSpecialPalindrome(int number) {
         if (isPalindrome(number)) {
             return true;

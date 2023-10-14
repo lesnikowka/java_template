@@ -1,6 +1,9 @@
 package edu.hw1;
 
 public class Task7 {
+    private Task7() {
+        throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
+    }
 
     public static int rotateLeft(int n, int shift) {
         int rotatedN = n;

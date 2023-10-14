@@ -4,6 +4,10 @@ import java.util.Arrays;
 import java.util.Collections;
 
 public class Task3 {
+    private Task3() {
+        throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
+    }
+
     public static boolean canBeNested(Integer[] arr1, Integer[] arr2) throws NullPointerException {
         if (arr1 == null || arr2 == null) {
             throw new NullPointerException("Arrays cannot be null");
