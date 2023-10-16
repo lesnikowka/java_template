@@ -1,11 +1,12 @@
 package edu.hw1;
 
 public final class Task2 {
+    private static final int numberSystem = 10;
+
     private Task2() {
         throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
     }
 
-    @SuppressWarnings("MagicNumber")
     public static int getNumberOfDigits(int number) {
         if (number == 0) {
             return 1;
@@ -16,7 +17,7 @@ public final class Task2 {
 
         while (numberCopy != 0) {
             numberOfDigits += 1;
-            numberCopy /= 10;
+            numberCopy /= numberSystem;
         }
 
         return numberOfDigits;

@@ -3,6 +3,7 @@ package edu.hw1;
 import java.util.Arrays;
 
 public final class Task6 {
+    private static final int caprecarConstant = 6174;
     private Task6() {
         throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
     }
@@ -21,7 +22,7 @@ public final class Task6 {
 
     @SuppressWarnings("MagicNumber")
     private static int makeStep(String currentNumber, int step) {
-        if (Integer.parseInt(currentNumber) == 6174) {
+        if (Integer.parseInt(currentNumber) == caprecarConstant) {
             return step;
         }
 

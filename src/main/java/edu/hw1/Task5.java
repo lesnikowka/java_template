@@ -1,6 +1,8 @@
 package edu.hw1;
 
 public final class Task5 {
+    private static final int numberSystem = 10;
+
     private Task5() {
         throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
     }
@@ -59,8 +61,8 @@ public final class Task5 {
     private static int getDigit(int number, int place) {
         int numberCopy = number;
 
-        numberCopy %= (int) Math.pow(10, place + 1);
-        numberCopy /= (int) Math.pow(10, place);
+        numberCopy %= (int) Math.pow(numberSystem, place + 1);
+        numberCopy /= (int) Math.pow(numberSystem, place);
 
         return numberCopy;
     }
@@ -76,7 +78,7 @@ public final class Task5 {
         int length = 0;
 
         while (numberCopy != 0) {
-            numberCopy /= 10;
+            numberCopy /= numberSystem;
             length++;
         }
 
