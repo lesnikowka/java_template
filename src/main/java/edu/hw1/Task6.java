@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public final class Task6 {
     private static final int CAPRECAR_CONSTANT = 6174;
-    
+
     private Task6() {
         throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
     }
