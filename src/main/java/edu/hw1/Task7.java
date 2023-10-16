@@ -1,6 +1,8 @@
 package edu.hw1;
 
 public final class Task7 {
+    private static final int INT_SIZE = 32;
+
     private Task7() {
         throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
     }
@@ -26,7 +28,6 @@ public final class Task7 {
     }
 
     private static int rotateLeftOneStep(int n, int bitLength) {
-        final int intSize = 32;
         int bitOneLast = 1;
         int bitOneFirst = 1 << bitLength - 1;
 
@@ -34,7 +35,7 @@ public final class Task7 {
 
         int maskForDeletingExtraOnes;
 
-        if (bitLength < intSize) {
+        if (bitLength < INT_SIZE) {
             maskForDeletingExtraOnes = (1 << bitLength) - 1;
         } else {
             maskForDeletingExtraOnes = (((1 << (bitLength - 1)) - 1) << 1) + 1;
@@ -62,13 +63,11 @@ public final class Task7 {
 
     @SuppressWarnings("MagicNumber")
     private static int getBitLength(int n) {
-        final int intSize = 32;
+        int bitOne = 1 << INT_SIZE - 1;
 
-        int bitOne = 1 << intSize - 1;
-
-        for (int i = 0; i < intSize - 1; i++) {
+        for (int i = 0; i < INT_SIZE - 1; i++) {
             if ((bitOne & n) != 0) {
-                return intSize - i;
+                return INT_SIZE - i;
             }
 
             bitOne = bitOne >> 1;

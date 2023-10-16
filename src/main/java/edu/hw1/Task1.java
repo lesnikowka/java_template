@@ -62,8 +62,9 @@ public final class Task1 {
 
     @SuppressWarnings("MagicNumber")
     private static boolean isNumber(char symbol) {
-        final String numbers = "1234567890";
-        return numbers.indexOf(symbol) != -1;
+        final String NUMBERS = "1234567890";
+
+        return NUMBERS.indexOf(symbol) != -1;
     }
 
     private static boolean isColon(char symbol) {

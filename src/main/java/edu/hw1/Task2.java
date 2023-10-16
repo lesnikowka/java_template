@@ -1,7 +1,7 @@
 package edu.hw1;
 
 public final class Task2 {
-    private static final int numberSystem = 10;
+    private static final int NUMBER_SYSTEM = 10;
 
     private Task2() {
         throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
@@ -17,7 +17,7 @@ public final class Task2 {
 
         while (numberCopy != 0) {
             numberOfDigits += 1;
-            numberCopy /= numberSystem;
+            numberCopy /= NUMBER_SYSTEM;
         }
 
         return numberOfDigits;
