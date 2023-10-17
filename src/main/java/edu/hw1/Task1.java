@@ -1,13 +1,14 @@
 package edu.hw1;
 
 public final class Task1 {
+    private static final int NUMBER_SECONDS_IN_MINUTE = 60;
+
     private Task1() {
         throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
     }
 
-    @SuppressWarnings("MagicNumber")
     public static int getVideoLength(String notParsed) {
-        if (!isCorrectString(notParsed)) {
+        if (notParsed == null || !isCorrectString(notParsed)) {
             return -1;
         }
 
@@ -16,7 +17,7 @@ public final class Task1 {
         int minutes = Integer.parseInt(notParsed.substring(0, colonIndex));
         int seconds = Integer.parseInt(notParsed.substring(colonIndex + 1));
 
-        return minutes * 60 + seconds;
+        return minutes * NUMBER_SECONDS_IN_MINUTE + seconds;
     }
 
     private static boolean isCorrectString(String notParsed) {
@@ -25,7 +26,6 @@ public final class Task1 {
             && isCorrectNumberSecondsAndMinutes(notParsed);
     }
 
-    @SuppressWarnings("MagicNumber")
     private static boolean isCorrectNumberSecondsAndMinutes(String notParsed) {
         int colonIndex = notParsed.indexOf(':');
 
@@ -35,12 +35,14 @@ public final class Task1 {
 
         int seconds = Integer.parseInt(notParsed.substring(colonIndex + 1));
 
-        return seconds < 60;
+        return seconds < NUMBER_SECONDS_IN_MINUTE;
     }
 
     private static boolean doesHaveOnlyNumbersAndColon(String notParsed) {
+        final String NUMBERS = "1234567890";
+
         for (int i = 0; i < notParsed.length(); i++) {
-            if (!isNumber(notParsed.charAt(i)) && !isColon(notParsed.charAt(i))) {
+            if (NUMBERS.indexOf(notParsed.charAt(i)) == -1 && notParsed.charAt(i) != ':') {
                 return false;
             }
         }
@@ -58,16 +60,5 @@ public final class Task1 {
         }
 
         return false;
-    }
-
-    @SuppressWarnings("MagicNumber")
-    private static boolean isNumber(char symbol) {
-        final String NUMBERS = "1234567890";
-
-        return NUMBERS.indexOf(symbol) != -1;
-    }
-
-    private static boolean isColon(char symbol) {
-        return symbol == ':';
     }
 }

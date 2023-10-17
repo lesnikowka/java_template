@@ -28,4 +28,10 @@ public class Task2Test {
     void correctForNegativeNumber() {
         assertThat(Task2.getNumberOfDigits(-123)).isEqualTo(3);
     }
+
+    @Test
+    @DisplayName("Проверка для 3000000000")
+    void correctForNumberWithLotOfZeroes() {
+        assertThat(Task2.getNumberOfDigits(3000000000L)).isEqualTo(10);
+    }
 }

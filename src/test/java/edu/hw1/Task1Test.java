@@ -8,11 +8,11 @@ public class Task1Test {
     @Test
     @DisplayName("Проверка на строке \"01:00\" ")
     void correctAnswerFor01_00() {
-         String time = "01:00";
+        String time = "01:00";
 
-         int seconds = Task1.getVideoLength(time);
+        int seconds = Task1.getVideoLength(time);
 
-         assertThat(seconds).isEqualTo(60);
+        assertThat(seconds).isEqualTo(60);
     }
 
     @Test
@@ -103,5 +103,23 @@ public class Task1Test {
         int seconds = Task1.getVideoLength(time);
 
         assertThat(seconds).isEqualTo(61);
+    }
+
+    @Test
+    @DisplayName("Проверка на пустой строке")
+    void falseIfEmptyString() {
+        String time = "";
+
+        int seconds = Task1.getVideoLength(time);
+
+        assertThat(seconds).isEqualTo(-1);
+    }
+
+    @Test
+    @DisplayName("Проверка на null строке")
+    void falseIfNullString() {
+        int seconds = Task1.getVideoLength(null);
+
+        assertThat(seconds).isEqualTo(-1);
     }
 }

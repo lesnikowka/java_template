@@ -7,12 +7,12 @@ public final class Task2 {
         throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
     }
 
-    public static int getNumberOfDigits(int number) {
+    public static int getNumberOfDigits(long number) {
         if (number == 0) {
             return 1;
         }
 
-        int numberCopy = number;
+        long numberCopy = number;
         int numberOfDigits = 0;
 
         while (numberCopy != 0) {

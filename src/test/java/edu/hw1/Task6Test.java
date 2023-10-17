@@ -3,6 +3,7 @@ package edu.hw1;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 public class Task6Test {
     @Test
@@ -33,5 +34,23 @@ public class Task6Test {
     @DisplayName("Проверка для 6174")
     void correctAnswerFor6174() {
         assertThat(Task6.getNumberOfStepsForConstantCaprecar(6174)).isEqualTo(0);
+    }
+
+    @Test
+    @DisplayName("Проверка для слишком большого числа")
+    void throwIfNumberIsTooBig() {
+
+        assertThatThrownBy(() -> {
+            Task6.getNumberOfStepsForConstantCaprecar(10000);
+        }).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    @DisplayName("Проверка для слишком маленького числа")
+    void throwIfNumberIsTooSmall() {
+
+        assertThatThrownBy(() -> {
+            Task6.getNumberOfStepsForConstantCaprecar(1000);
+        }).isInstanceOf(IllegalArgumentException.class);
     }
 }
