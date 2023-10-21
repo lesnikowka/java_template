@@ -1,19 +1,19 @@
 package edu.project1;
 
-import org.jetbrains.annotations.NotNull;
-import java.util.ArrayList;
-import java.util.Set;
 import java.util.HashSet;
+import java.util.Set;
+import org.jetbrains.annotations.NotNull;
 
 class Session {
     private final Set<Character> notGuessedCharacters;
     private final String answer;
-
     private final char[] state;
     private final int maxAttempts;
-    private GuessResult lastResult;
-
     private int attempts;
+    private final String notAllowedMessage = "Guess not allowed after the end of the game";
+    private final String winMessage = "Win!";
+    private final String defeatMessage = "You lost!";
+    private final String SuccessfulGuessMessage = "Hit!";
 
     public Session(String answer, int maxAttempts) {
         this.answer = answer;
@@ -31,7 +31,7 @@ class Session {
 
     @NotNull GuessResult guess(char guess) {
         if (notGuessedCharacters.isEmpty() || attempts == maxAttempts) {
-            throw new IllegalCallerException("Guess not allowed after the end of the game");
+            throw new IllegalCallerException(notAllowedMessage);
         }
 
         if (notGuessedCharacters.contains(guess)) {
@@ -40,23 +40,23 @@ class Session {
             changeState(guess);
 
             if (notGuessedCharacters.isEmpty()) {
-                return new GuessResult.Win(state, attempts, maxAttempts, "Win!");
+                return new GuessResult.Win(state, attempts, maxAttempts, winMessage);
             } else {
-                return new GuessResult.SuccessfulGuess(state, attempts, maxAttempts, "Hit!");
+                return new GuessResult.SuccessfulGuess(state, attempts, maxAttempts, SuccessfulGuessMessage);
             }
 
         } else {
             attempts += 1;
 
             if (attempts == maxAttempts) {
-                return new GuessResult.Defeat(state, attempts, maxAttempts, "You lost!");
+                return new GuessResult.Defeat(state, attempts, maxAttempts, defeatMessage);
             } else {
 
-                String failedMessage = "Missed, mistake " +
-                    attempts +
-                    " out of " +
-                    maxAttempts +
-                    ".";
+                String failedMessage = "Missed, mistake "
+                    + attempts
+                    + " out of "
+                    + maxAttempts
+                    + ".";
 
                 return new GuessResult.FailedGuess(state, attempts, maxAttempts, failedMessage);
             }
@@ -66,10 +66,10 @@ class Session {
 
     @NotNull GuessResult giveUp() {
         if (notGuessedCharacters.isEmpty() || attempts == maxAttempts) {
-            throw new IllegalCallerException("Guess not allowed after the end of the game");
+            throw new IllegalCallerException(notAllowedMessage);
         }
 
-        return new GuessResult.Defeat(state, attempts, maxAttempts, "You lost!");
+        return new GuessResult.Defeat(answer.toCharArray(), attempts, maxAttempts, defeatMessage);
     }
 
     private void changeState(char guess) {

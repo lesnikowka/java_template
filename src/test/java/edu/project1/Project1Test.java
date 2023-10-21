@@ -64,6 +64,18 @@ public class Project1Test {
     }
 
     @Test
+    @DisplayName("Поражение если сдаемся")
+    void defeatIfGiveUp() {
+        ConsoleHangman consoleHangman = new ConsoleHangman();
+
+        InputStream inputStream = new ByteArrayInputStream("j\na\ngive up\n".getBytes());
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+
+        assertThat(consoleHangman.run("java", 3, inputStream, outputStream)).isInstanceOf(GuessResult.Defeat.class);
+    }
+
+    @Test
     @DisplayName("Поражение если не угадываем максимальное число раз")
     void defeatIfSpendAllAttempts() {
         ConsoleHangman consoleHangman = new ConsoleHangman();

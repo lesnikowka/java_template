@@ -1,12 +1,17 @@
 package edu.project1;
 
+import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.BufferedReader;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 
 class ConsoleHangman {
+    public final String guessMessage = "Guess a letter:\n";
+    public final String incorrectInputMessage = "Incorrect input!\n";
+    public final String wordMessage = "Word:\n";
+    public final String giveUpCommand = "give up";
+
     public GuessResult run(String word, int maxAttempts, InputStream inputStream, OutputStream outputStream)
         throws NullPointerException, IllegalArgumentException {
         if (word == null || inputStream == null || outputStream == null) {
@@ -26,26 +31,26 @@ class ConsoleHangman {
         GuessResult lastGuessResult = null;
 
         while (true) {
-            if (cannotWriteStringToOutputStream("Guess a letter:\n", outputStream)) {
+            if (cannotWriteStringToOutputStream(guessMessage, outputStream)) {
                 lastGuessResult = null;
                 break;
             }
 
-            String input;
+            String input = getStringFromInputStream(bufferedReader);
 
-            if ((input = getStringFromInputStream(bufferedReader)) == null) {
+            if (input == null) {
                 lastGuessResult = null;
                 break;
             }
 
-            if (input.equalsIgnoreCase("give up")) {
+            if (input.equalsIgnoreCase(giveUpCommand)) {
                 lastGuessResult = session.giveUp();
                 if (!printState(lastGuessResult, outputStream)) {
                     lastGuessResult = null;
                 }
                 break;
             } else if (!isCorrectInput(input)) {
-                if (cannotWriteStringToOutputStream("Incorrect input!\n", outputStream)) {
+                if (cannotWriteStringToOutputStream(incorrectInputMessage, outputStream)) {
                     lastGuessResult = null;
                     break;
                 }
@@ -69,7 +74,7 @@ class ConsoleHangman {
     }
 
     private boolean printState(GuessResult guess, OutputStream outputStream) {
-        String output = guess.message() + "\n" + "Word:\n" + new String(guess.state()) + "\n";
+        String output = guess.message() + "\n" + wordMessage + new String(guess.state()) + "\n";
 
         return !cannotWriteStringToOutputStream(output, outputStream);
     }
@@ -96,7 +101,7 @@ class ConsoleHangman {
 
     private boolean cannotWriteStringToOutputStream(String output, OutputStream outputStream) {
         try {
-            outputStream.write("Guess a letter:\n".getBytes(StandardCharsets.UTF_8));
+            outputStream.write(output.getBytes(StandardCharsets.UTF_8));
         } catch (java.io.IOException ex) {
             return true;
         }

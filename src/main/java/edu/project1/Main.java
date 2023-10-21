@@ -4,6 +4,9 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
 public final class Main {
+    private Main() {
+    }
+
     public static void main(String[] args) {
         ConsoleHangman consoleHangman = new ConsoleHangman();
 
