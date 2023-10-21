@@ -7,6 +7,7 @@ public final class Main {
     private Main() {
     }
 
+    @SuppressWarnings("MagicNumber")
     public static void main(String[] args) {
         ConsoleHangman consoleHangman = new ConsoleHangman();
 

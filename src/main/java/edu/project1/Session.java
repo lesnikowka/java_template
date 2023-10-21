@@ -15,7 +15,7 @@ class Session {
     private final String defeatMessage = "You lost!";
     private final String successfulGuessMessage = "Hit!";
 
-    public Session(String answer, int maxAttempts) {
+    Session(String answer, int maxAttempts) {
         this.answer = answer;
         this.maxAttempts = maxAttempts;
         attempts = 0;
@@ -30,7 +30,7 @@ class Session {
     }
 
     @NotNull
-    public GuessResult guess(char guess) {
+    GuessResult guess(char guess) {
         if (notGuessedCharacters.isEmpty() || attempts == maxAttempts) {
             throw new IllegalCallerException(notAllowedMessage);
         }
@@ -66,7 +66,7 @@ class Session {
     }
 
     @NotNull
-    public GuessResult giveUp() {
+    GuessResult giveUp() {
         if (notGuessedCharacters.isEmpty() || attempts == maxAttempts) {
             throw new IllegalCallerException(notAllowedMessage);
         }
