@@ -14,6 +14,8 @@ public final class Main {
 
         InputStream inputStream = new ByteArrayInputStream("j\na\nv\na\n".getBytes());
 
-        consoleHangman.run(dictionary.randomWord(), 3, inputStream, System.out);
+        int maxAttempts = 3;
+
+        consoleHangman.run("java", maxAttempts, inputStream, System.out);
     }
 }

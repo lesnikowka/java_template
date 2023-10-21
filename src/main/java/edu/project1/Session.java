@@ -13,7 +13,7 @@ class Session {
     private final String notAllowedMessage = "Guess not allowed after the end of the game";
     private final String winMessage = "Win!";
     private final String defeatMessage = "You lost!";
-    private final String SuccessfulGuessMessage = "Hit!";
+    private final String successfulGuessMessage = "Hit!";
 
     public Session(String answer, int maxAttempts) {
         this.answer = answer;
@@ -29,7 +29,8 @@ class Session {
 
     }
 
-    @NotNull GuessResult guess(char guess) {
+    @NotNull
+    public GuessResult guess(char guess) {
         if (notGuessedCharacters.isEmpty() || attempts == maxAttempts) {
             throw new IllegalCallerException(notAllowedMessage);
         }
@@ -42,7 +43,7 @@ class Session {
             if (notGuessedCharacters.isEmpty()) {
                 return new GuessResult.Win(state, attempts, maxAttempts, winMessage);
             } else {
-                return new GuessResult.SuccessfulGuess(state, attempts, maxAttempts, SuccessfulGuessMessage);
+                return new GuessResult.SuccessfulGuess(state, attempts, maxAttempts, successfulGuessMessage);
             }
 
         } else {
@@ -64,7 +65,8 @@ class Session {
 
     }
 
-    @NotNull GuessResult giveUp() {
+    @NotNull
+    public GuessResult giveUp() {
         if (notGuessedCharacters.isEmpty() || attempts == maxAttempts) {
             throw new IllegalCallerException(notAllowedMessage);
         }
