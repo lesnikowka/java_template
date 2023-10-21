@@ -1,11 +1,12 @@
 package edu.project1;
 
 import org.jetbrains.annotations.NotNull;
+import java.util.Locale;
 import java.util.Scanner;
 
 class ConsoleHangman {
     public void run(int maxAttempts) {
-        if (maxAttempts < 1){
+        if (maxAttempts < 1) {
             throw new IllegalArgumentException("Number of attempts cannot be less than 0");
         }
 
@@ -15,36 +16,43 @@ class ConsoleHangman {
 
         Session session = new Session(dictionary.randomWord(), maxAttempts);
 
-
         while (true) {
             System.out.println("Guess a letter:");
 
             String input = in.nextLine().toLowerCase();
 
-            if (!isCorrectInput(input)){
+            if (input.equalsIgnoreCase("give up")) {
+                printState(session.giveUp());
+                break;
+            }
+
+            if (!isCorrectInput(input)) {
                 System.out.println("Incorrect input!");
                 continue;
             }
 
-            GuessResult guessResult = tryGuess(session, input);
-        }
-    }
+            GuessResult guessResult = session.guess(input.charAt(0));
 
-    private GuessResult tryGuess(Session session, String input) {
-        return new GuessResult.Defeat(new char[3], 0, 0, "");
+            printState(guessResult);
+
+            if (guessResult instanceof GuessResult.Win || guessResult instanceof GuessResult.Defeat) {
+                break;
+            }
+        }
     }
 
     private void printState(GuessResult guess) {
         System.out.println(guess.message());
+        System.out.print("Word: ");
+        System.out.println(guess.state());
+        System.out.println();
     }
 
     private boolean isCorrectInput(String input) {
-        for (int i = 0; i < input.length(); i++) {
-            if (!(input.charAt(i) >= 'a' && input.charAt(i) <= 'z')) {
-                return false;
-            }
+        if (input.length() != 1) {
+            return false;
         }
 
-        return true;
+        return input.charAt(0) >= 'a' && input.charAt(0) <= 'z';
     }
 }
