@@ -1,14 +1,12 @@
 package edu.project1;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
-import java.io.BufferedOutputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.ByteArrayInputStream;
 
 public class Project1Test {
     @Test
@@ -121,5 +119,13 @@ public class Project1Test {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
         assertThat(consoleHangman.run("java", 3, inputStream, outputStream)).isEqualTo(null);
+    }
+
+    @Test
+    @DisplayName("Тест словаря")
+    void doesDictionaryReturnWord() {
+        Dictionary hangmanDictionary = new HangmanDictionary();
+
+        assertThat(hangmanDictionary.randomWord()).isNotNull().isNotEmpty();
     }
 }
