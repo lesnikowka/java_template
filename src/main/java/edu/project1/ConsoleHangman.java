@@ -7,10 +7,10 @@ import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 
 class ConsoleHangman {
-    public void run(String word, int maxAttempts, InputStream inputStream, OutputStream outputStream)
+    public GuessResult run(String word, int maxAttempts, InputStream inputStream, OutputStream outputStream)
         throws NullPointerException, IllegalArgumentException {
-        if (word == null) {
-            throw new NullPointerException("String cannot be null");
+        if (word == null || inputStream == null || outputStream == null) {
+            throw new NullPointerException("Arguments cannot be null");
         }
         if (word.isEmpty()) {
             throw new IllegalArgumentException("String cannot be empty");
@@ -21,18 +21,20 @@ class ConsoleHangman {
 
         Session session = new Session(word, maxAttempts);
 
-        String out;
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+
+        GuessResult lastGuessResult  = null;
 
         while (true) {
             try {
                 outputStream.write("Guess a letter:\n".getBytes(StandardCharsets.UTF_8));
             } catch (java.io.IOException ex) {
-                return;
+                return null;
             }
 
             String input;
-            if ((input = getStringFromInputStream(inputStream)) == null){
-                return;
+            if ((input = getStringFromInputStream(bufferedReader)) == null){
+                return null;
             }
 
             if (input.equalsIgnoreCase("give up")) {
@@ -44,20 +46,22 @@ class ConsoleHangman {
                 try {
                     outputStream.write("Incorrect input!\n".getBytes(StandardCharsets.UTF_8));
                 } catch (java.io.IOException ex) {
-                    return;
+                    return null;
                 }
 
                 continue;
             }
 
-            GuessResult guessResult = session.guess(input.charAt(0));
+            lastGuessResult = session.guess(input.charAt(0));
 
-            printState(guessResult, outputStream);
+            printState(lastGuessResult, outputStream);
 
-            if (guessResult instanceof GuessResult.Win || guessResult instanceof GuessResult.Defeat) {
+            if (lastGuessResult instanceof GuessResult.Win || lastGuessResult instanceof GuessResult.Defeat) {
                 break;
             }
         }
+
+        return lastGuessResult;
     }
 
     private void printState(GuessResult guess, OutputStream outputStream) {
@@ -80,8 +84,7 @@ class ConsoleHangman {
         return input.charAt(0) >= 'a' && input.charAt(0) <= 'z';
     }
 
-    private String getStringFromInputStream(InputStream inputStream) {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+    private String getStringFromInputStream(BufferedReader bufferedReader) {
 
         String input;
 
