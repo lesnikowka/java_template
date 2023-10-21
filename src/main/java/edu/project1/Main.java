@@ -9,7 +9,6 @@ public final class Main {
 
         Dictionary dictionary = new HangmanDictionary();
 
-
         InputStream inputStream = new ByteArrayInputStream("j\na\nv\na\n".getBytes());
 
         consoleHangman.run(dictionary.randomWord(), 3, inputStream, System.out);

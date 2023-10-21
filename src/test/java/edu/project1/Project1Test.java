@@ -98,4 +98,16 @@ public class Project1Test {
 
         assertThat(consoleHangman.run("java", 3, inputStream, outputStream)).isInstanceOf(GuessResult.Win.class);
     }
+
+    @Test
+    @DisplayName("Null если закончились значения в потоке ввода")
+    void nullIfNotEnoughAnswersInInputStream() {
+        ConsoleHangman consoleHangman = new ConsoleHangman();
+
+        InputStream inputStream = new ByteArrayInputStream("j\na\n".getBytes());
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+
+        assertThat(consoleHangman.run("java", 3, inputStream, outputStream)).isEqualTo(null);
+    }
 }
