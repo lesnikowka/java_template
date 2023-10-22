@@ -1,9 +1,6 @@
-package edu.hw2;
+package edu.hw2.Task1;
 
 import java.lang.Math;
-
-public class Task1 {
-}
 
 interface Expr {
     double evaluate();
@@ -113,5 +110,3 @@ interface Expr {
     }
 
 }
-
-

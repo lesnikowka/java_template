@@ -1,6 +1,9 @@
-package edu.hw2;
+package edu.hw2.Task4;
 
 public class Task4 {
+    private Task4() {
+    }
+
     record CallingInfo(String className, String methodName) {
     }
 
