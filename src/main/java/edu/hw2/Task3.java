@@ -3,6 +3,9 @@ package edu.hw2;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+public class Task3 {
+}
+
 class ConnectionException extends RuntimeException {
     public ConnectionException(String errorMessage) {
         super(errorMessage);
@@ -83,3 +86,4 @@ final class PopularCommandExecutor {
         }
     }
 }
+

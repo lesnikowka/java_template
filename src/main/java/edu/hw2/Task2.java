@@ -1,5 +1,8 @@
 package edu.hw2;
 
+public class Task2 {
+}
+
 class Rectangle {
     private final int width;
     private final int height;
@@ -19,3 +22,4 @@ class Square extends Rectangle {
         super(length, length);
     }
 }
+

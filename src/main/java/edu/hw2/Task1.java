@@ -2,6 +2,9 @@ package edu.hw2;
 
 import java.lang.Math;
 
+public class Task1 {
+}
+
 interface Expr {
     double evaluate();
 
@@ -110,4 +113,5 @@ interface Expr {
     }
 
 }
+
 
