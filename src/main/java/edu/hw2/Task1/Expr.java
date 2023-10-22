@@ -1,7 +1,5 @@
 package edu.hw2.Task1;
 
-import java.lang.Math;
-
 public interface Expr {
     double evaluate();
 
