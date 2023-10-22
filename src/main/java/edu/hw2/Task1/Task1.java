@@ -5,7 +5,7 @@ import java.lang.Math;
 interface Expr {
     double evaluate();
 
-    public class Constant implements Expr {
+    class Constant implements Expr {
         private final double value;
 
         public Constant(double value) {
@@ -21,7 +21,7 @@ interface Expr {
         }
     }
 
-    public class Negate implements Expr {
+    class Negate implements Expr {
         private final double value;
 
         public Negate(double value) {
@@ -37,7 +37,7 @@ interface Expr {
         }
     }
 
-    public class Exponent implements Expr {
+    class Exponent implements Expr {
         private final double value;
 
         public Exponent(double value1, double value2) {
@@ -61,7 +61,7 @@ interface Expr {
         }
     }
 
-    public class Addition implements Expr {
+    class Addition implements Expr {
         private final double value;
 
         public Addition(double value1, double value2) {
@@ -85,7 +85,7 @@ interface Expr {
         }
     }
 
-    public class Multiplication implements Expr {
+    class Multiplication implements Expr {
         private final double value;
 
         public Multiplication(double value1, double value2) {
@@ -108,5 +108,4 @@ interface Expr {
             return value;
         }
     }
-
 }
